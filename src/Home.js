@@ -4,19 +4,36 @@ import BlogList from "./blogList";
 const Home = () => {
     const [blogs, setBlogs] = useState(null);
     const [isPending, setIsPending]= useState(true);
+    const[error,setError]=useState(null);
+
+
 
       useEffect(()=>{
-      fetch("http://localhost:8000/blogs")
-      .then(res=>{
-      return res.json();
-      }).then((data)=>{
-        setBlogs(data);
-        setIsPending(false);
-      })
-      },[]);
+        setTimeout(()=>{
+          fetch("http://localhost:8000/blogs")
+          .then(res=>{
+            if (!res.ok) { // error coming back from server
+              throw Error('could not fetch the data for that resource');
+            } 
+          return res.json();
+          })
+          .then((data)=>{
+            setBlogs(data);
+            setIsPending(false);
+            setError(null);
+          })
+          .catch((err)=>{
+            setError(err.message);
+            setIsPending(false);
+          })
+          },500);
+        },[]);
+
+
 
     return ( 
         <div className="home">
+            {error && <div>{error}</div>}
             {isPending && <div> Loading ... </div>}
             { blogs && <BlogList blogs= { blogs } title= "All Blogs!!"/>}
             </div> 
@@ -24,6 +41,3 @@ const Home = () => {
 }
  
 export default Home;
-
-
-//this is a comment ,need to check if git configuration changed or not
