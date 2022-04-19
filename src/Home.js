@@ -24,3 +24,6 @@ const Home = () => {
 }
  
 export default Home;
+
+
+//this is a comment ,need to check if git configuration changed or not
