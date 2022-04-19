@@ -25,7 +25,8 @@ const useFetch = (url)=>{
             setIsPending(false);
           })
           },500);
-        },[]);
+        },[url]);
+        
         return {data, isPending, error};
 }
 
