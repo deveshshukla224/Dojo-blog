@@ -3,7 +3,7 @@ import Home from './Home';
 import{BrowserRouter as Router, Route , Switch} from 'react-router-dom';
 import Create from './Create';
 import React from "react";
-
+import BlogDetails from "./blogDetails";
 
 function App() {
   return (
@@ -17,6 +17,9 @@ function App() {
           </Route>
           <Route path="/create">
           <Create></Create>
+          </Route>
+          <Route path="/blogs/:id">
+            <BlogDetails/>
           </Route>
         </Switch>
       </div>
