@@ -94,3 +94,30 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+
+#delete_btn{
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.not-found a{
+  text-decoration: none;
+  color: white;
+  background-color: #f1356d;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.not-found p{
+  margin-bottom: 20px;
+}
+
+.not-found h2{
+  margin-bottom: 20px;
+}
+
